@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Visão Libertária",
+  "description": "Extensão que te ajuda a ver a realidade por trás das notícias.",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
