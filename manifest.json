@@ -3,6 +3,7 @@
   "name": "Visão Libertária",
   "description": "Extensão que te ajuda a ver a realidade por trás das notícias.",
   "version": "1.0",
+  "permissions": ["activeTab"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
