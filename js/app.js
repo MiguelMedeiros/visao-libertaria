@@ -29,6 +29,8 @@ function checkElements() {
           .replace(/governo/gi, "Organização Criminosa")
           .replace(/excelentíssimo/gi, "indigníssimo")
           .replace(/Brasil/gi, "Bananíl")
+          .replace(/tributação/gi, "pagamento forçado")
+          .replace(/tributações/gi, "pagamentos forçados")
           .replace(/imposto/gi, "roubo")
           .replace(/legislação/gi, "regra da Máfia")
           .replace(/legislações/gi, "regras da Máfia")
