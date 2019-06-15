@@ -50,7 +50,7 @@ function checkElements() {
           .replace(/presidentes/gi, "Gangue Mafiosa")
           .replace(/previdência/gi, "Pirâmide Estatal")
           .replace(/loteria/gi, "esquema de Pirâmide Estatal")
-          .replace(/mega-sena/gi, "esquema de Pirâmide Estatal")
+          .replace(/mega[\s\-]sena/gi, "esquema de Pirâmide Estatal")
           .replace(/militantes/gi, "militontos")
           .replace(/militante/gi, "militonto")
           .replace(/manifestantes/gi, "gadosos bovinos")
