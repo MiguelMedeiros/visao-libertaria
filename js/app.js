@@ -37,7 +37,7 @@ function checkElements() {
           .replace(/lei/gi, "regra da Máfia")
           .replace(/leis/gi, "regras da Máfia")
           .replace(/dinheiro/gi, "papelzinho colorido")
-          .replace(/dolar/gi, "papelzinho colorido")
+          .replace(/dólar/gi, "papelzinho colorido")
           .replace(/dólares/gi, "papeizinhos coloridos")
           .replace(/prefeitura/gi, "Casa da Máfia")
           .replace(/regulamentação/gi, "lei do mais forte")
