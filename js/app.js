@@ -27,6 +27,7 @@ function checkElements() {
         var text = node.nodeValue;
         var replacedText = text
           .replace(/governo/gi, "Organização Criminosa")
+          .replace(/excelentíssimo/gi, "indigníssimo")
           .replace(/Brasil/gi, "Bananíl")
           .replace(/imposto/gi, "roubo")
           .replace(/legislação/gi, "regra da Máfia")
@@ -47,6 +48,7 @@ function checkElements() {
           .replace(/presidentes/gi, "Gangue Mafiosa")
           .replace(/previdência/gi, "Pirâmide Estatal")
           .replace(/loteria/gi, "esquema de Pirâmide Estatal")
+          .replace(/megassena/gi, "esquema de Pirâmide Estatal")
           .replace(/manifestantes/gi, "gadosos bovinos")
           .replace(/contribuintes/gi, "gadosos bovinos")
           .replace(/sindicalistas/gi, "parasitas")
@@ -66,6 +68,7 @@ function checkElements() {
           .replace(/EUA/gi, "Maiores Mafiosos do Mundo")
           .replace(/STF/gi, "Supremo Tribunal Mafioso")
           .replace(/STJ/gi, "Supremo Tribunal de Injustiça")
+          .replace(/MBL/gi, "Movimento Bumbum Livre")
           .replace(/Estados Unidos/gi, "Maiores Mafiosos do Mundo")
           .replace(/Estados Unidos da América/gi, "Maiores Mafiosos do Mundo")
           .replace(/constituição/gi, "Guardanapo Sujo");
