@@ -58,7 +58,7 @@ function checkElements() {
           .replace(/sindicalistas/gi, "parasitas")
           .replace(/sindicalista/gi, "parasita")
           .replace(/polícia/gi, "milícia da Máfia")
-          .replace(/policias/gi, "milícias da Máfia")
+          .replace(/polícias/gi, "milícias da Máfia")
           .replace(/policial/gi, "miliciano da Máfia")
           .replace(/policiais/gi, "milicianos da Máfia")
           .replace(/PM/gi, "milícia da Máfia")
