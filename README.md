@@ -1,6 +1,6 @@
 <div class="content">
   <div class="header">
-    <img class="logo" src="./icon.png" alt="Visão Libertária" />
+    <img class="logo" src="./img/icon.png" alt="Visão Libertária" />
     <h1>Visão Libertária</h1>
     <div class="description">
       Extensão do Chrome que faz o seu navegador tomar uma red pill.
@@ -42,7 +42,7 @@
   <h2>Contribua</h2>
   <img
     class="donation"
-    src="./donation.png"
+    src="./img/donation.png"
     alt="18kXMmrDtgfeQgVmwfmygTaYLyQuVS4chK"
   />
   <div class="btc-text">18kXMmrDtgfeQgVmwfmygTaYLyQuVS4chK</div>
