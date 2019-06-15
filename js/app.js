@@ -4,7 +4,6 @@ window.onload = function() {
   checkElements();
   window.setInterval(() => {
     checkElements();
-    console.log("atestete");
   }, 3000);
 };
 
