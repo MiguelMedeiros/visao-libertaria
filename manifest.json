@@ -4,7 +4,7 @@
   "author": "Miguel Medeiros",
   "short_name": "Visão Libertária",
   "description": "Extensão que te ajuda a ver a realidade por trás das noticias.",
-  "version": "1.9.16",
+  "version": "1.9.17",
   "icons": { "128": "./img/icon_128.png" },
   "content_scripts": [
     {
