@@ -35,7 +35,6 @@ function checkElements() {
           .replace(/Bolsonaro/gi, "Chefe da Máfia")
           .replace(/Lula/gi, "Molusco")
           .replace(/Maia/gi, "Bolinha")
-          .replace(/Dilma/gi, "Dilmanta")
           .replace(/presidente/gi, "Chefe da Máfia")
           .replace(/previdência/gi, "Pirâmide Estatal")
           .replace(/loteria/gi, "esquema de Pirâmide Estatal")
