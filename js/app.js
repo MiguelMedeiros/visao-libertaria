@@ -1,7 +1,10 @@
 var elements = document.getElementsByTagName("*");
 
 // base de um regex para capturar um artigo, com contrações de preposições ou plural
-const regexForWordAndArticle = "((?:\bun|\buma?|(?:\bd|\bn|\bpr|\bpel|\b|)[oa]|à)s? )?({0})";
+const regexForWordAndArticle = "(?:({1} )|({2} )|({3} ))?({0})"
+  .replace("{1}", "\\b(?:un|uma|à|ao)s?") // casos irregulares
+  .replace("{2}", "\\b(?:dess|dest|nest|d?aquel|naquel)[ea]s?") // casos de contrações com fim a/e
+  .replace("{3}", "\\b(?:d|bn|pr|pel|)[oa]s?") // casos de contrações com fim a/o
 
 window.onload = function() {
   checkElements();
@@ -22,12 +25,12 @@ function makeRegexWithArticle(word) {
   return new RegExp(regexForWordAndArticle.replace("{0}", word), "gi");
 };
 
-function changeWordAndConjugate(match, p1, p2) {
-  if (p1 === undefined || p1 === null) {
-    // necessário para não concatenar 'undefined'
-    p1 = "";
-  }  else {
-    // operações de inversão de gênero
+function changeWordAndConjugate(match, p1, p2, p3, word) {
+  let before = "";
+
+  // p1 pega palavras irregulares
+  if (p1) {
+    p1 = p1.toLowerCase();
     if (p1 == "umas") {
       p1 = "uns";
     } else if (p1 == "uns") {
@@ -35,36 +38,61 @@ function changeWordAndConjugate(match, p1, p2) {
     }
     if (p1 == "uma") {
       p1 = "um";
-    } else if (p1 === "um") {
+    } else if (p1 == "um") {
       p1 = "uma";
     }
-    if (p1.search("a") != -1) {
-      p1 = p1.replace("a", "o");
-    } else {
-      p1 = p1.replace("o", "a");
-    }
     if (p1.search("à") != -1) {
-      p1 = p1.replace("à", "ao")
+      p1 = p1.replace("à", "ao");
+    } else if (p1.search("ao") != -1) {
+      p1 = p1.replace("ao", "à");
     }
+    before = p1;
   }
 
-  // as substituições não podem ser passadas via argumento
-  if (p2 == "governo") {
-    p2 = "Organização Criminosa";
-  } else if (p2 == "tributação") {
-    p2 = "pagamento forçado";
-  } else if (p2 == "tributações") {
-    p2 = "pagamentos forçados";
-  } else if(p2 == "loteria") {
-    p2 = "esquema de Pirâmide Estatal";
-  } else if (p2 == "mega-sena") {
-    p2 = "esquema de Pirâmide Estatal"
-  } else if("constituição") {
-    p2 = "Guardanapo Sujo";
-  } else {
-    throw `Nada para substituir o termo ${match}`;
+  // p2 pega palavras com fim e/a
+  if (p2) {
+    p2 = p2.toLowerCase();
+    if (p2.endsWith("a ") || p2.endsWith("as ")) {
+      p2 = p2.replace("a ", "e ");
+      p2 = p2.replace("as ", "es ");
+    } else {
+      p2 = p2.replace("e ", "a ");
+      p2 = p2.replace("es ", "as ");
+    }
+    before = p2;
   }
-  return `${p1}${p2}`
+
+  // p3 pega palavras com fim o/a
+  //
+  if (p3) {
+    p3 = p3.toLowerCase();
+    if (p3.endsWith("a ") || p3.endsWith("as ")) {
+      p3 = p3.replace("a ", "o ");
+      p3 = p3.replace("as ", "os ");
+    }  else {
+      p3 = p3.replace("o ", "a ");
+      p3 = p3.replace("os ", "as ");
+    }
+    before = p3;
+  }
+  // os termos estão aqui porque as substituições não podem ser passadas via argumento
+  word = word.toLowerCase();
+  if (word === "governo") {
+    word = "Organização Criminosa";
+  } else if (word === "tributação") {
+    word = "pagamento forçado";
+  } else if (word === "tributações") {
+    word = "pagamentos forçados";
+  } else if(word === "loteria") {
+    word = "esquema de Pirâmide Estatal";
+  } else if (word === "mega-sena") {
+    word = "esquema de Pirâmide Estatal"
+  } else if (word === "constituição") {
+    word = "Guardanapo Sujo";
+  } else {
+    throw `Nada para substituir o termo ${word}`;
+  }
+  return `${before}${word}`
 };
 
 function checkElements() {
