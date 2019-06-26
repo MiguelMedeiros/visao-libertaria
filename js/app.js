@@ -95,6 +95,10 @@ function changeWordAndConjugate(match, p1, p2, p3, word) {
   return `${before}${word}`
 };
 
+function getRandomWord(words) {
+    return words[Math.floor(Math.random() * words.length)]
+}
+
 function checkElements() {
   for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
@@ -121,8 +125,16 @@ function checkElements() {
           .replace(/\bprefeitura\b/gi, "Casa da Máfia")
           .replace(/\bregulamentação\b/gi, "lei do mais forte")
           .replace(/\bPolítica\b/gi, "Bandidagem")
-          .replace(/\bPresidente Bolsonaro\b/gi, "Chefe da Máfia")
-          .replace("Bolsonaro", "Chefe da Máfia")
+          .replace(/\bPresidente Bolsonaro\b/gi, getRandomWord([
+              "Chefe da Máfia",
+              "Il capo di tutti capi Bolsonaro",
+              "Chefe de todos os chefes"
+          ]))
+          .replace("Bolsonaro", getRandomWord([
+              "Chefe da Máfia",
+              "Il capo di tutti capi Bolsonaro",
+              "Chefe de todos os chefes"
+          ]))
           .replace("Lula", "Presidiário de 9 Dedos")
           .replace("Maia", "Bolinha")
           .replace(/\bpresidente\b/gi, "Chefe da Máfia")
