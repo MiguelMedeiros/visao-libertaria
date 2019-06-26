@@ -150,7 +150,7 @@ function checkElements() {
           .replace(/\btraficante\b/gi, "empreendedor")
           .replace(/\btraficantes\b/gi, "empreendedores")
           .replace(/\bEUA\b/gi, "Maiores Mafiosos do Mundo")
-          .replace(/\bSTF\b/gi, "Supremo Tribunal Mafioso")
+          .replace(/\bSTF\b/gi, "Supremo Tribunal Parasitário")
           .replace(/\bSTJ\b/gi, "Supremo Tribunal de Injustiça")
           .replace(/\bMBL\b/gi, "Movimento Bumbum Livre")
           .replace(/\bEstados Unidos\b/gi, "Maiores Mafiosos do Mundo")
