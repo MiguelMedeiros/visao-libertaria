@@ -125,19 +125,18 @@ function checkElements() {
           .replace(/\bprefeitura\b/gi, "Casa da Máfia")
           .replace(/\bregulamentação\b/gi, "lei do mais forte")
           .replace(/\bPolítica\b/gi, "Bandidagem")
-          .replace(/\bPresidente Bolsonaro\b/gi, getRandomWord([
+          .replace(/\bpresidente\b/gi, getRandomWord([
               "Chefe da Máfia",
-              "Il capo di tutti capi Bolsonaro",
-              "Chefe de todos os chefes"
+              "Il capo di tutti capi",
+              "Líder da Milícia"
           ]))
-          .replace("Bolsonaro", getRandomWord([
-              "Chefe da Máfia",
-              "Il capo di tutti capi Bolsonaro",
-              "Chefe de todos os chefes"
+          .replace("Bolsonaro", "Líder Supremo " + getRandomWord([
+            "da Máfia",
+            "da Milícia",
+            "da Gangue"
           ]))
           .replace("Lula", "Presidiário de 9 Dedos")
           .replace("Maia", "Bolinha")
-          .replace(/\bpresidente\b/gi, "Chefe da Máfia")
           .replace(/\bpresidentes\b/gi, "Gangue Mafiosa")
           .replace(/\bprevidência\b/gi, "Pirâmide Estatal")
           .replace(makeRegexWithArticle("loteria"), changeWordAndConjugate)
