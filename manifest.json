@@ -3,9 +3,13 @@
   "name": "Visão Libertária",
   "author": "Miguel Medeiros",
   "short_name": "Visão Libertária",
-  "description": "Extensão que te ajuda a ver a realidade por trás das noticias.",
+  "description": "Extensão que te ajuda a ver a realidade por trás das notícias.",
   "version": "1.9.18",
   "icons": { "128": "./img/icon_128.png" },
+  "background": {
+    "scripts": ["./js/background.js"],
+    "persistent":false
+    },
   "content_scripts": [
     {
       "matches": [
@@ -39,7 +43,7 @@
       "run_at": "document_end"
     }
   ],
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs", "storage"],
   "browser_action": {
     "default_icon": "./img/icon.png",
     "default_popup": "popup.html"
