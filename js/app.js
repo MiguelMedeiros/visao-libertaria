@@ -125,7 +125,13 @@ function getRandomWord(words) {
 function checkElements(parentNode, node) {
   if (node) {
     for (var i = 0; i < node.childNodes.length; i++) {
-      checkElements(node, node.childNodes[i]);
+      // pista de que um div é um input no Facebook, Linkedin e Twitter
+      let isTextbox = node.getAttribute("role") == "textbox";
+      // pista de que um div é um input no Messenger, Minds e YouTube
+      let isEditable = node.getAttribute("contenteditable") == "true";
+      if (!(isTextbox || isEditable)) {
+        checkElements(node, node.childNodes[i]);
+      }
     }
     if (node.nodeType === 3) {
       var text = node.nodeValue;
