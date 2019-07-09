@@ -7,16 +7,18 @@ const regexPrecedingArticleAndWord = "(?:({1}) |({2}) |({3}) )?({0})"
   .replace("{2}", "\\b(?:dess|dest|nest|d?aquel|naquel)[ea]s?") // casos de contrações com fim a/e
   .replace("{3}", "\\b(?:d|n|pr|pel|)[oa]s?"); // casos de contrações com fim a/o
 
+
 /**
- * confere se a extensão pode processar a página da aba atual, ou não
- * @return {boolean} retorna true se o site pode ser modificado, e false caso contrário.
- */
-(function checkURL() {
+* confere se a extensão pode processar a página da aba atual, ou não
+* @return {boolean} retorna true se o site pode ser modificado, e false caso contrário.
+*/
+function checkURL() {
   chrome.runtime.sendMessage({ command: "check-current-url" }, (response) => {
     isNotWhitelisted = response.isURLEnabled;
   });
-})();
+}
 
+checkURL();
 window.onload = function() {
   if (isNotWhitelisted) {
     checkElements(null, rootElement);
@@ -32,10 +34,10 @@ window.onload = function() {
 };
 
 /**
- *
+ * constrói uma regex que captura a palavra fornecida e a anterior, se for um artigo
  * @param {String} word a palavra a ser inserida no regex
- * @return {RegExp} Uma Regex que captura a palavra fornecida e o termo anterior
- *                  se for um artigo
+ * @return {RegExp} a regex construída com a palavra fornecida
+ *
  */
 function capturePreviousWord(word) {
   return new RegExp(regexPrecedingArticleAndWord.replace("{0}", word), "gi");
@@ -43,7 +45,7 @@ function capturePreviousWord(word) {
 
 /**
  * Função para substituir palavras quando o gênero é alterado
- * @param {String} match o texto reconhecido pela regex
+ * @param {String} match o match completo da regex
  * @param {String|null} p1 contrações de preposição + artigo irregulares
  * @param {String|null} p2 alguma preposição + artigo com fim a/e
  * @param {String|null} p3 alguma preposição + artigo com fim a/o
@@ -102,9 +104,9 @@ function customReplacer(match, p1, p2, p3, word) {
   } else if (word === "tributações") {
     word = "pagamentos forçados";
   } else if(word === "loteria") {
-    word = "esquema de Pirâmide Estatal";
+    word = "Esquema de Pirâmide Estatal";
   } else if (word === "mega-sena") {
-    word = "esquema de Pirâmide Estatal";
+    word = "Esquema de Pirâmide Estatal";
   } else if (word === "constituição") {
     word = "Guardanapo Sujo";
   } else {
@@ -123,16 +125,23 @@ function getRandomWord(words) {
 }
 
 function checkElements(parentNode, node) {
-  if (node) {
+
+  let isTextbox = false;
+  let isEditable = false;
+  if (node && node.getAttribute) {
+
+    // Informa se o node é um input no Facebook, Linkedin ou Twitter
+    isTextbox = node.getAttribute("role") == "textbox";
+
+    // Informa se o node é um input em sites como Messenger, Minds ou YouTube
+    isEditable = node.getAttribute("contenteditable") == "true";
+  }
+
+  if (node && !isTextbox && !isEditable) {
     for (var i = 0; i < node.childNodes.length; i++) {
-      // pista de que um div é um input no Facebook, Linkedin e Twitter
-      let isTextbox = node.getAttribute("role") == "textbox";
-      // pista de que um div é um input no Messenger, Minds e YouTube
-      let isEditable = node.getAttribute("contenteditable") == "true";
-      if (!(isTextbox || isEditable)) {
-        checkElements(node, node.childNodes[i]);
-      }
+      checkElements(node, node.childNodes[i]);
     }
+
     if (node.nodeType === 3) {
       var text = node.nodeValue;
       var replacedText = text
@@ -200,7 +209,6 @@ function checkElements(parentNode, node) {
       }
     }
   }
-
-
 }
+
 
