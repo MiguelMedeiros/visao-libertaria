@@ -38,6 +38,15 @@
         Discord da Cultura Libertária
       </a>
     </li>
+    <li>
+      <a
+        href="https://bitcoinhodler.io"
+        alt="BitcoinHodler.io"
+        target="_blank"
+      >
+        Bitcoin Hodler
+      </a>
+    </li>
   </ul>
   <h2>Contribua</h2>
   <img
