@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css?family=Acme&display=swap"
       rel="stylesheet"
     />
+    <script src="js/popup.js"></script>
     <title>
       Visão Libertária | Extensão do Chrome que faz o seu navegador tomar uma
       red pill.
@@ -103,10 +104,25 @@
       .header img {
         width: 55px;
       }
+      hr {
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+      .whitelist {
+        /* TODO */
+      }
     </style>
   </head>
   <body>
     <div class="content">
+      <div class="header">
+        <button type="button" id="add-to-whitelist">Ignorar este site</button>
+        <button type="button" id="show-whitelist">Lista de sites</button>
+        <button type="button" id="clean-whitelist">Limpar lista</button>
+      </div>
+      <div id="whitelist" class="whitelist">
+      </div>
+      <hr>
       <div class="header">
         <img class="logo" src="./img/icon.png" alt="Visão Libertária" />
         <h1>Visão Libertária</h1>
