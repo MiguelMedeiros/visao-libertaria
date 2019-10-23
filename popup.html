@@ -22,107 +22,13 @@
       href="https://fonts.googleapis.com/css?family=Acme&display=swap"
       rel="stylesheet"
     />
-    <script src="js/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>
-      Visão Libertária | Extensão do Chrome que faz o seu navegador tomar uma
-      red pill.
+      Visão Libertária | Extensão do Chrome que faz o seu navegador tomar uma red pill.
     </title>
-    <style>
-      body {
-        background: #222;
-        border: 2px solid #fff;
-        padding: 20px;
-        margin: 0;
-        color: #ccc;
-      }
-      h1,
-      h2 {
-        font-family: "Acme", sans-serif;
-        margin: 0;
-        color: #fff;
-        /* text-shadow: 1px 1px 2px yellow; */
-      }
-      h2 {
-        margin: 20px auto 10px;
-      }
-      ul {
-        padding-left: 0;
-        list-style: none;
-      }
-      li {
-        display: inline-block;
-        margin: 10px;
-        vertical-align: top;
-      }
-      li span {
-        font-size: 10px;
-        display: block;
-      }
-      p {
-        text-align: left;
-        color: #fff;
-        padding: 0 20px;
-      }
-      a {
-        color: yellow;
-      }
-      footer {
-        text-align: center;
-      }
-      .description {
-        font-size: 12px;
-        color: #fff;
-        margin: auto;
-        max-width: 220px;
-      }
-      .about {
-        margin: 25px auto;
-      }
-      .content {
-        min-width: 350px;
-        text-align: center;
-      }
-      .logo {
-        display: inline;
-      }
-      .fa {
-        font-size: 40px;
-        color: #fff;
-      }
-      .dev {
-        max-width: 40px;
-        border-radius: 50%;
-      }
-      .donation {
-        max-width: 120px;
-      }
-      .btc-text {
-        font-size: 8px;
-        color: #eee;
-        margin-top: 4px;
-      }
-      .header img {
-        width: 55px;
-      }
-      hr {
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-      .whitelist {
-        /* TODO */
-      }
-    </style>
   </head>
   <body>
     <div class="content">
-      <div class="header">
-        <button type="button" id="add-to-whitelist">Ignorar este site</button>
-        <button type="button" id="show-whitelist">Lista de sites</button>
-        <button type="button" id="clean-whitelist">Limpar lista</button>
-      </div>
-      <div id="whitelist" class="whitelist">
-      </div>
-      <hr>
       <div class="header">
         <img class="logo" src="./img/icon.png" alt="Visão Libertária" />
         <h1>Visão Libertária</h1>
@@ -140,10 +46,19 @@
         <p>
           Então a partir daí foi só arregaçar as mangas e criar essa extensão!
         </p>
-        <p><b>Espero que vocês curtam e compartilhem essa ideia!</b></p>
+        <p><b>Compartilhe essa Red Pill com seus amigos!</b></p>
       </div>
+      <hr/>
+      <h2>White List</h2>
+      <p>Adicione sites que você gostaria que a extensão não fosse ativada:</p>
+      <div class="filter-options">
+        <button type="button" id="add-to-whitelist">Ignorar Website atual</button>
+      </div>
+      <div id="whitelist-message"></div>
+      <div id="whitelist" class="whitelist"></div>
+      <hr/>
       <h2>Outros Projetos</h2>
-      <ul>
+      <ul class="projects">
         <li>
           <a
             href="https://www.impostoeroubo.com"
@@ -170,7 +85,21 @@
             />
           </a>
         </li>
+        <li>
+          <a
+            href="https://bitcoinhodler.io"
+            target="_blank"
+            alt="BitcoinHodler.io"
+          >
+            <img
+              class="logo"
+              src="./img/bitcoinhodler.jpg"
+              alt="Bitcoin Hodler"
+            />
+          </a>
+        </li>
       </ul>
+      <hr/>
       <h2>Contribua</h2>
       <img
         class="donation"
@@ -199,5 +128,6 @@
         </li>
       </ul>
     </footer>
+    <script src="js/popup.js"></script>
   </body>
 </html>
