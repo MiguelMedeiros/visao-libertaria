@@ -148,6 +148,7 @@ function checkElements(parentNode, node) {
         .replace(capturePreviousWord("governo"), customReplacer)
         .replace(/\bexcelentíssimo\b/gi, "indigníssimo")
         .replace(/\bBrasil\b/gi, "Bananíl")
+        .replace(/\bItalia\b/gi, "Pizza Landia")
         .replace(capturePreviousWord("tributação"), customReplacer)
         .replace(capturePreviousWord("tributações"), customReplacer)
         .replace(/\bimposto\b/gi, "roubo")
