@@ -12,7 +12,18 @@ A ideia desse projeto surgiu quando via os vídeos do canal [Ancap.SU](http://an
 
 **Espero que vocês curtam e compartilhem essa ideia!**
 
-## Outros Projetos
+### Rode Localmente
+
+```shell
+$ git clone https://github.com/MiguelMedeiros/visao-libertaria # Clone o repositorio.
+# Abra o Google Chrome ou qualquer outro baseado nele.
+# Acesse a sessão de extensões.
+# Ative o modo de desenvolvedor.
+# Selecione a opção Load unpacked.
+# Selecione a pasta raiz do projeto.
+```
+
+### Outros Projetos
 
 - [Imposto é Roubo](https://www.impostoeroubo.com)
 - [Discord do Cultura Libertária](https://discord.gg/ZNPvsv)
