@@ -1,6 +1,6 @@
 <div align="center">
 
-![Visão Libertária](img/icon.png)
+[![Visão Libertária](img/icon.png)](https://chrome.google.com/webstore/detail/vis%C3%A3o-libert%C3%A1ria/jnafjgekhpiipmhihkmoboggpclkdijl)
 
 # **Visão Libertária**
 
