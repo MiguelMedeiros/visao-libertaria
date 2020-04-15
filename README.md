@@ -29,6 +29,12 @@ $ git clone https://github.com/MiguelMedeiros/visao-libertaria # Clone o reposit
 - [Discord do Cultura Libertária](https://discord.gg/ZNPvsv)
 - [Bitcoin Hodler](https://bitcoinhodler.io)
 
+#### Licença
+
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
+
+---
+
 ### Contribua
 
 <div align="center">
