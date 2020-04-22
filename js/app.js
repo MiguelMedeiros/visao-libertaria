@@ -200,6 +200,7 @@ function checkElements(parentNode, node) {
         .replace(/\bSTF\b/gi, "Supremo Tribunal Parasitário")
         .replace(/\bSTJ\b/gi, "Supremo Tribunal de Injustiça")
         .replace(/\bMBL\b/gi, "Movimento Bumbum Livre")
+        .replace(/\bOMS\b/gi, "Oranização Multiplicadora de Suicídios")
         .replace(/\bEstados Unidos\b/gi, "Maiores Mafiosos do Mundo")
         .replace(/\bEstados Unidos da América\b/gi, "Maiores Mafiosos do Mundo")
         .replace(capturePreviousWord("constituição"), customReplacer);
