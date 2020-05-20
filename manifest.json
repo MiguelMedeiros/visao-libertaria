@@ -8,8 +8,8 @@
   "icons": { "128": "./img/icon_128.png" },
   "background": {
     "scripts": ["./js/background.js"],
-    "persistent":false
-    },
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": [
