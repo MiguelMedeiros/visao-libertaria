@@ -71,7 +71,7 @@ hr {
 
 .logo {
   display: inline;
-  max-width: 100px;
+  max-width: 90px;
 }
 
 .projects li {
@@ -93,9 +93,9 @@ hr {
 }
 
 .btc-text {
-  font-size: 8px;
+  font-size: 12px;
   color: #eee;
-  margin-top: 4px;
+  margin-top: 10px;
 }
 
 .filter-options img {

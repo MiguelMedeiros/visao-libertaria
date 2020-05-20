@@ -25,8 +25,8 @@ $ git clone https://github.com/MiguelMedeiros/visao-libertaria # Clone o reposit
 
 ### Outros Projetos
 
-- [Imposto é Roubo](https://www.impostoeroubo.com)
-- [Discord do Cultura Libertária](https://discord.gg/ZNPvsv)
+- [Imposto é Roubo](http://www.impostoeroubo.com/)
+- [Bitcoin Price Map](https://www.bitcoinpricemap.com)
 - [Bitcoin Hodler](https://bitcoinhodler.io)
 
 #### Licença
