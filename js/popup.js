@@ -8,12 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function addToWhitelist() {
   chrome.runtime.sendMessage({ command: "add-url" }, response => {
     let divContainer = document.getElementById("whitelist-message");
+
     divContainer.style.diplay = "block";
     divContainer.innerHTML = null;
     divContainer.innerHTML = `As páginas de <span>${response.domain}</span> não receberão o Red Pill.`;
+
     setTimeout(() => {
       document.getElementById("whitelist-message").style.display = "none";
     }, 3000);
+
     showWhitelist();
     reloadPage();
   });
@@ -26,13 +29,16 @@ function removeSiteWhitelist(url) {
         data.whitelist.splice(index, 1);
       }
     });
+
     let divContainer = document.getElementById("whitelist");
     if (divContainer.firstChild) {
       divContainer.removeChild(divContainer.firstChild);
     }
+
     let ul = populateList(data.whitelist);
     divContainer.appendChild(ul);
     chrome.storage.local.set({ whitelist: data.whitelist });
+
     reloadPage();
   });
 }
@@ -43,6 +49,7 @@ function showWhitelist() {
     if (divContainer.firstChild) {
       divContainer.removeChild(divContainer.firstChild);
     }
+
     let ul = populateList(data.whitelist);
     divContainer.appendChild(ul);
   });
@@ -51,13 +58,15 @@ function showWhitelist() {
 function populateList(list) {
   let ul = document.createElement("UL");
   ul.setAttribute("class", "whitelist");
+
   if (list.length > 0) {
     list.forEach(url => {
       let li = document.createElement("LI");
       let button = document.createElement("button");
       let span = document.createElement("span");
+
       button.innerHTML =
-        '<i class="fa fa-trash remove-whitelist" data-url="' + url + '"></i>';
+        "<i class=\"fa fa-trash remove-whitelist\" data-url=\"" + url + "\"></i>";
       span.innerText = url;
       li.appendChild(button);
       li.appendChild(span);
@@ -69,6 +78,7 @@ function populateList(list) {
   } else {
     ul.innerText = "Lista vazia";
   }
+
   return ul;
 }
 
