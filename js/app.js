@@ -7,13 +7,12 @@ const regexPrecedingArticleAndWord = "(?:({1}) |({2}) |({3}) )?({0})"
   .replace("{2}", "\\b(?:dess|dest|nest|d?aquel|naquel)[ea]s?") // casos de contrações com fim a/e
   .replace("{3}", "\\b(?:d|n|pr|pel|)[oa]s?"); // casos de contrações com fim a/o
 
-
 /**
-* confere se a extensão pode processar a página da aba atual, ou não
-* @return {boolean} retorna true se o site pode ser modificado, e false caso contrário.
-*/
+ * confere se a extensão pode processar a página da aba atual, ou não
+ * @return {boolean} retorna true se o site pode ser modificado, e false caso contrário.
+ */
 function checkURL() {
-  chrome.runtime.sendMessage({ command: "check-current-url" }, (response) => {
+  chrome.runtime.sendMessage({ command: "check-current-url" }, response => {
     isNotWhitelisted = response.isURLEnabled;
   });
 }
@@ -29,7 +28,9 @@ window.onload = function() {
       "click",
       () => {
         checkElements(null, rootElement);
-      }, false);
+      },
+      false
+    );
   }
 };
 
@@ -53,27 +54,34 @@ function capturePreviousWord(word) {
  */
 function customReplacer(match, p1, p2, p3, word) {
   let particle = "";
+
   if (p1) {
     p1 = p1.toLowerCase();
+
     if (p1 == "umas") {
       p1 = "uns";
     } else if (p1 == "uns") {
       p1 = "umas";
     }
+
     if (p1 == "uma") {
       p1 = "um";
     } else if (p1 == "um") {
       p1 = "uma";
     }
+
     if (p1.search("à") != -1) {
       p1 = p1.replace("à", "ao");
     } else if (p1.search("ao") != -1) {
       p1 = p1.replace("ao", "à");
     }
+
     particle = p1;
   }
+
   if (p2) {
     p2 = p2.toLowerCase();
+
     if (p2.endsWith("a") || p2.endsWith("as")) {
       p2 = p2.replace("a", "e");
       p2 = p2.replace("as", "es");
@@ -81,17 +89,21 @@ function customReplacer(match, p1, p2, p3, word) {
       p2 = p2.replace("e", "a");
       p2 = p2.replace("es", "as");
     }
+
     particle = p2;
   }
+
   if (p3) {
     p3 = p3.toLowerCase();
+
     if (p3.endsWith("a") || p3.endsWith("as")) {
       p3 = p3.replace("a", "o");
       p3 = p3.replace("as", "os");
-    }  else {
+    } else {
       p3 = p3.replace("o", "a");
       p3 = p3.replace("os", "as");
     }
+
     particle = p3;
   }
 
@@ -103,7 +115,7 @@ function customReplacer(match, p1, p2, p3, word) {
     word = "pagamento forçado";
   } else if (word === "tributações") {
     word = "pagamentos forçados";
-  } else if(word === "loteria") {
+  } else if (word === "loteria") {
     word = "Esquema de Pirâmide Estatal";
   } else if (word === "mega-sena") {
     word = "Esquema de Pirâmide Estatal";
@@ -117,6 +129,7 @@ function customReplacer(match, p1, p2, p3, word) {
   if (!particle == "") {
     particle = particle + " ";
   }
+
   return `${particle}${word}`;
 }
 
@@ -125,11 +138,10 @@ function getRandomWord(words) {
 }
 
 function checkElements(parentNode, node) {
-
   let isTextbox = false;
   let isEditable = false;
-  if (node && node.getAttribute) {
 
+  if (node && node.getAttribute) {
     // Informa se o node é um input no Facebook, Linkedin ou Twitter
     isTextbox = node.getAttribute("role") == "textbox";
 
@@ -161,16 +173,19 @@ function checkElements(parentNode, node) {
         .replace(/\bprefeitura\b/gi, "Casa da Máfia")
         .replace(/\bregulamentação\b/gi, "lei do mais forte")
         .replace(/\bPolítica\b/gi, "Bandidagem")
-        .replace(/\bpresidente\b/gi, getRandomWord([
-          "Chefe da Máfia",
-          "Il capo di tutti capi",
-          "Líder da Milícia"
-        ]))
-        .replace("Bolsonaro", "Líder Supremo " + getRandomWord([
-          "da Máfia",
-          "da Milícia",
-          "da Gangue"
-        ]))
+        .replace(
+          /\bpresidente\b/gi,
+          getRandomWord([
+            "Chefe da Máfia",
+            "Il capo di tutti capi",
+            "Líder da Milícia"
+          ])
+        )
+        .replace(
+          "Bolsonaro",
+          "Líder Supremo " +
+            getRandomWord(["da Máfia", "da Milícia", "da Gangue"])
+        )
         .replace("Lula", "Presidiário de 9 Dedos")
         .replace("Maia", "Bolinha")
         .replace(/\bpresidentes\b/gi, "Gangue Mafiosa")
@@ -201,6 +216,7 @@ function checkElements(parentNode, node) {
         .replace(/\bSTJ\b/gi, "Supremo Tribunal de Injustiça")
         .replace(/\bMBL\b/gi, "Movimento Bumbum Livre")
         .replace(/\bABIN\b/gi, "Associação de Bestas de Inteligência Nula")
+        .replace(/\bOMS\b/gi, "Oranização Multiplicadora de Suicídios")
         .replace(/\bEstados Unidos\b/gi, "Maiores Mafiosos do Mundo")
         .replace(/\bEstados Unidos da América\b/gi, "Maiores Mafiosos do Mundo")
         .replace(capturePreviousWord("constituição"), customReplacer);
@@ -211,5 +227,3 @@ function checkElements(parentNode, node) {
     }
   }
 }
-
-

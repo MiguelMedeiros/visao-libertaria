@@ -5,6 +5,7 @@ body {
   margin: 0;
   color: #ccc;
 }
+
 h1,
 h2 {
   font-family: "Acme", sans-serif;
@@ -12,89 +13,112 @@ h2 {
   color: #fff;
   /* text-shadow: 1px 1px 2px yellow; */
 }
+
 h2 {
   margin: 20px auto 10px;
 }
+
 ul {
   padding-left: 0;
   list-style: none;
 }
+
 li {
   display: inline-block;
   margin: 10px;
   vertical-align: top;
 }
+
 li span {
   font-size: 10px;
   display: block;
 }
+
 p {
   text-align: left;
   color: #fff;
   padding: 0 15px;
 }
+
 a {
   color: yellow;
 }
+
 footer {
   text-align: center;
 }
+
 hr {
   margin-top: 15px;
   margin-bottom: 10px;
 }
+
 .description {
   font-size: 12px;
   color: #fff;
   margin: auto;
   max-width: 220px;
 }
+
 .about {
   margin: 25px auto;
 }
+
 .content {
   min-width: 350px;
   text-align: center;
 }
+
 .logo {
   display: inline;
   max-width: 100px;
 }
-.projects li{
+
+.projects li {
   vertical-align: middle !important;
 }
+
 .fa {
   font-size: 40px;
   color: #fff;
 }
+
 .dev {
   max-width: 40px;
   border-radius: 50%;
 }
+
 .donation {
   max-width: 120px;
 }
+
 .btc-text {
   font-size: 8px;
   color: #eee;
   margin-top: 4px;
 }
+
 .filter-options img {
   width: 55px;
 }
+
 .whitelist {
   margin-top: 10px;
 }
+
 .whitelist ul {
   margin: 20px auto;
 }
+
 .whitelist li {
   display: block;
   text-align: left;
 }
+
 .filter-options {
   margin-top: 20px;
 }
+
 .filter-options button {
   font-weight: bold;
   font-size: 12px;
@@ -107,33 +131,40 @@ hr {
   cursor: pointer;
   text-transform: uppercase;
 }
-.filter-options button:hover{
+
+.filter-options button:hover {
   background: #fff;
   color: #000000;
   border: 2px solid #fff;
 }
-.whitelist button{
+
+.whitelist button {
   background: none;
   border: none;
   cursor: pointer;
 }
-.whitelist .fa{
+
+.whitelist .fa {
   font-size: 18px;
   margin-right: 6px;
 }
-.whitelist span{
+
+.whitelist span {
   font-size: 18px;
   display: inline-block;
 }
-.whitelist li:hover span{
+
+.whitelist li:hover span {
   text-decoration: line-through;
   color: yellow;
 }
+
 #whitelist-message {
   margin: 20px 0;
   display: block;
   transform: 1000ms all;
 }
-#whitelist-message span{
+
+#whitelist-message span {
   color: yellow;
 }
