@@ -32,14 +32,3 @@ $ git clone https://github.com/MiguelMedeiros/visao-libertaria # Clone o reposit
 #### Licença
 
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
-
----
-
-### Contribua
-
-<div align="center">
-
-![18kXMmrDtgfeQgVmwfmygTaYLyQuVS4chK](img/donation.png)\
-18kXMmrDtgfeQgVmwfmygTaYLyQuVS4chK
-
-</div>
